@@ -1,0 +1,39 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+<!--    <meta charset="UTF-8">
+  <title>Formularios con CSS</title>-->
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+<body>
+ <!-- <p>{{filaagenda}}</p> -->
+  <h3>Realice los cambios necesarios según las indicaciones:</h3>
+
+  <form class="" action="{{url_for('clubrealizacambioagenda')}}" method="post">
+
+    <p>1. Para liberar el turno, escriba la palabra: vacio</p>
+    <p>2. Si va a cambiar el jugador ó registrar alguno, escriba el nuevo usuario</p>
+    <input type="hidden" name="fecha" value="{{fecha}}">
+    <input type="hidden" name="campo" value="{{campo}}">
+    <input type="hidden" name="turno" value="{{turno}}">
+    <br>
+
+      <label for="">Jugador 1: {{filaagenda[8]}}</label><input type="text" name="jug01" value=""placeholder="{{filaagenda[8]}}">
+      <label for="">Jugador 2: {{filaagenda[9]}}</label><input type="text" name="jug02" value=""placeholder="{{filaagenda[9]}}">
+      <label for="">Jugador 3: {{filaagenda[10]}}</label><input type="text" name="jug03" value=""placeholder="{{filaagenda[10]}}">
+      <label for="">Jugador 4: {{filaagenda[11]}}</label><input type="text" name="jug04" value=""placeholder="{{filaagenda[11]}}">
+
+    <input type="submit" name="" value="Realizar el cambio">
+  </form>
+
+
+
+
+    <ul class="">
+      <li><a href="{{url_for('vaparameters')}}" >Regresar</a></li>
+      <li><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+
+    </ul>
+     <br><br><br>
+</body>
+{% endblock %}

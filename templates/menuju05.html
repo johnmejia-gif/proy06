@@ -1,0 +1,67 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+
+
+
+  <body>
+    <br>
+    <p>Seleccione su turno y su marcador para generar la tarjeta de juego.</p>
+    <br>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alerta">
+          <h2>{{message}}</h2>
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+
+    <form class="" action="{{url_for('tarjetasjugadorsend')}}" method="POST">
+      <label for="">Campo</label>
+      <select class="" name="club">
+        {% for sitio in clubjugado %}
+        <option >{{sitio}}</option>
+        {% endfor %}
+      </select>
+      <br>
+      <label for="">Hora de Juego</label>
+      <select class="" name="hora">
+        {% for hora in horas%}
+            <option >{{hora}}</option>
+        {% endfor%}
+      </select>
+      <br>
+      <label for="">Compañero marcador</label>
+      <select class="" name="marcador">
+        {% for man in colegas%}
+          {% if man != 'vacio' %}
+            <option >{{man}}</option>
+          {% endif %}
+        {% endfor%}
+      </select>
+
+      <br>
+      <input type="submit" name="" value="Generar Tarjeta">
+
+    </form>
+
+
+
+
+
+    <br>
+    <li class="enlace"><a href="{{url_for('iniciojugadores')}}">Volver</a></li>
+    <li class="enlace"><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+
+  </body>
+
+
+
+
+{% endblock %}

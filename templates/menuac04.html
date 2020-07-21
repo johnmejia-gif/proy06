@@ -1,0 +1,37 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+<!--    <meta charset="UTF-8">
+  <title>Formularios con CSS</title>-->
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+<body>
+
+
+  <h2>Club:  {{club}}</h2>
+  <p>{{session["name"]}}, para visualizar y acceder a la agenda de un día y un campo por favor seleccionar:</p>
+
+
+
+    <form action="{{url_for('clubveragenda')}}" method="post">
+      <label for="">Selecione campo:</label>
+      <select class="" name="campo">
+        {% for i in range(1,largo) %}
+          <option>{{campos[i]}}</option>
+        {% endfor %}
+      </select>
+
+      <label for="">Seleccione Fecha:</label>
+      <input type="date" name="fecha" required/><br/>
+
+      <br><br>
+      <input id="submit" name="submit" type="submit" value="Enviar">
+    </form>
+
+    <ul class="">
+      <li><a href="{{url_for('inicioadclub')}}" >Regresar</a></li>
+      <li><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+    </ul>
+     <br><br><br>
+</body>
+{% endblock %}

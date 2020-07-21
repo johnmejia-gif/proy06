@@ -1,0 +1,409 @@
+*{
+  margin: 0;padding: 0;
+  font-family: Roboto-Light;
+  box-sizing: border-box;
+}
+
+.navegacion {
+  width: 100%;
+  background: #fff;
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.navegacion ul{
+   list-style: none;
+ }
+
+.menu > li{
+  position: relative;
+  width: 15%;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+}
+.menu li> a{
+  padding:10px 30px;
+  display: inline-block;
+  color: #000;
+  list-style: none;
+  text-decoration: none;
+}
+.menu li a:hover{
+  background: #fb8c00;
+  color:#000;
+  transition: all .3s;
+}
+
+.submenu{
+  position: absolute;
+  background: #1F8DA6;
+  color: red;
+  width: 120%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+.submenu li a{
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.menu li:hover .submenu{
+  visibility: visible;
+  opacity: 1;
+}
+
+body{
+  text-align: justify;
+  background: #fff;
+  box-sizing: border-box;
+}
+h2{
+  padding: 20px;
+  font-size: 35px;
+  color:#065F73;
+  box-sizing: border-box;
+}
+h3{
+  padding: 20px;
+  font-size: 27px;
+  color:#065F73;
+  box-sizing: border-box;
+}
+h4{
+  padding: 20px;
+  font-size: 20px;
+  color:#065F73;
+  box-sizing: border-box;
+}
+
+P{
+  font-size: 20px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.portada{
+  width: 100%; max-width: 1200px;
+  height: auto;
+  box-sizing: border-box;
+}
+
+footer p{
+  width: 100vw;
+  background: #065F73;
+  color: #fff;
+  margin:0px;
+  padding:5px;
+  box-sizing: border-box;
+  border:2px solid #1668C4;
+  box-sizing: border-box;
+}
+.portada {
+  margin-left: 0%;
+  box-sizing: border-box;
+}
+.wrapper{
+  width: 100vw;
+  height: auto;
+  box-sizing: border-box;
+}
+.form05{
+  background:#1F8DA6;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form05 h3{
+  color: white;
+}
+.contenedor05{
+  border:1px solid #fff;
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+  color: #1668C4;
+  box-sizing: border-box;
+}
+
+.ttabla td{
+  background: #2020ff;
+  color: #ffff;
+  text-align: center;
+}
+.filas_nd{
+  background: pink;
+}
+
+.filas_sd{
+  background: #ffff;
+}
+.tabla_agenda{
+  text-align: center;
+  margin: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.tabla_agenda td{
+  border:1px solid #1668C4;
+  margin: 1px;
+  padding: 0px;
+  width: 12%
+  }
+
+.celda_boton{
+  padding: 0px;
+  margin: 0px;
+  }
+
+button[type="submit"]{
+  background: #79ffa3;
+  color: black;
+  padding:0;
+  margin: 0;
+  width:100%;
+}
+button[type="submit"]:hover{
+  background: #065600;
+  color: #ffff;
+  padding:0;
+  margin: 0;
+  width:100%;
+}
+button[type="submit"]:active{
+  background: orange;
+  color: black;
+  padding:0;
+  margin: 0;
+  width:100%;
+}
+
+.boton_seleccion :hover{
+  background: #ffff;
+  color: #0000;
+  padding:0;
+  margin: 0;
+  width:100%;
+  cursor: pointer;
+}
+.boton_seleccion :active{
+  background: #ffff;
+  color: #ffff;
+  padding:0;
+  margin: 0;
+  width:100%;
+}
+.boton_radio{
+  width: 10%;
+}
+.prueba{
+  background: pink;
+  width: 70%;
+  height: 50px;
+  overflow:auto;
+}
+
+.alerta{
+  background: orange;
+
+}
+
+form{
+  background: #1F8DA6;
+  color: #ffff;
+  width: 50%;
+  border:0px solid #ccc;
+  margin: 20px;
+  padding: 20px;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+label{
+  font-size: 20px;
+  display:block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea{
+  resize: vertical;
+  max-height: 300px;
+  min-height: 100px;
+}
+input, textarea{
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border:1px solid #ccc;
+  box-sizing: border-box;
+}
+input[type=date], input[type=time] {
+  margin-bottom: 20px;
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+select, option {
+  margin-bottom: 20px;
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  border:1px solid #ccc;
+  font-size: 15px;
+}
+
+input:focus, textarea:focus {
+  border:2px solid #1668C4;
+}
+.cruces{
+  color:red;
+}
+
+input[type="submit"] {
+  margin-bottom: 20px;
+  background: #fb8c00;
+  color:#fff;
+  border:none;
+  font-size: 15px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: auto;
+}
+
+input[type="submit"]:hover{
+  background: #f2ac57;
+  cursor: pointer;
+}
+
+input[type="submit"]:active{
+  background: #f24c27;
+}
+.jugadores{
+  width: 50%;
+}
+
+.jugador1{
+  background: #fff;
+  color: #000;
+  width: 50%;
+  height: 35px;
+}
+.enlace{
+  list-style: none;
+}
+.turn{
+  width:10%;
+
+}
+.nodispo{
+  color: #ccc;
+  font-size: 17px;
+}
+.turnosdia{
+  padding: 15px;
+  margin: 20px;
+}
+.alerta{
+  background: orange;
+
+}
+.tarjeta{
+  width: 80%;
+}
+
+.score{
+  color: black;
+  width: 100%;
+  font-size: 100%;
+  font-weight: bold;
+  text-align: center;
+}
+.tabla_tarjeta{
+  width: 100%;
+}
+.tabla_tarjeta td{
+  width: 5%;
+  text-align: center;
+}
+.contabla{
+  background: #ffff;
+  height: 30px;
+}
+@media only screen and (max-width:800px){
+  .menu > li{
+    width: 25%;
+    text-align: right;
+  }
+
+  .contenedor05 table{
+    width: 90%;
+  }
+
+  h2{
+    padding: 5px;
+    font-size: 20px;
+    color:#065F73;
+  }
+  h3{
+    padding: 5px;
+    font-size: 18px;
+    color:#065F73;
+  }
+  h4{
+    padding: 5px;
+    font-size: 16px;
+    color:#065F73;
+  }
+
+  P{
+    font-size: 15px;
+    padding-left: 10px;
+  }
+  .contarjeta{
+    width: 100%;
+    background: red;
+    box-sizing: border-box;
+  }
+  .contarjeta form{
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .contarjeta table{
+    width: 100%;
+    background: #065F73;
+    box-sizing: border-box;
+
+  }
+  .contarjeta td{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+  form{
+    background: #1F8DA6;
+    color: #ffff;
+    width: 100%;
+    border:0px solid #ccc;
+    margin: 0px;
+    padding: 10px;
+    list-style: none;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+  label{
+    font-size: 15px;
+    display:block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+}

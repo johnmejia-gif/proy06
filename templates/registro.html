@@ -1,0 +1,66 @@
+{% extends "layout_autenticado.html" %}
+
+{% block content%}
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+<body>
+
+
+      <br>
+      <h2>Registro de Usuario</h2>
+      <br>
+      <br>
+      <p>Para Registrarte como usuario de TEE-SHOT, debes diligenciar por lo menos los campos obligatorios (**)</p>
+      <p>{{dato}}</p>
+    <form action="{{url_for('terminaregistro')}}" method="POST">
+
+      <label for="usuario">Usuario (e-mail) **</label>
+      <input id="usuario" name="usuario" required type="email" value="">
+
+      <label for="usuario">Confirme el correo electrónico **</label>
+      <input id="usuario" name="usuario2" required type="email" value="">
+
+      <label for="usuario">Nombres **</label>
+      <input id="usuario" name="nombre" required type="text" value="">
+
+      <label for="usuario">Apellidos **</label>
+      <input id="usuario" name="apellido" required type="text" value="">
+
+  <!--    <label for="contrasena">Contraseña **</label>
+      <input id="contrasena" name="contrasena1" required type="password" value="">
+
+      <label for="contrasena">Confirme la Contraseña **</label>
+      <input id="contrasena" name="contrasena2" required type="password" value="">
+-->
+
+      <label for="usuario">Club **</label>
+      <select name="club">
+        {% for i in range(largo) %}
+        <option>{{campos[i]}}</option>
+        {% endfor %}
+      </select>
+      <br/>
+
+      <label for="usuario" class="opcional">Número de Celular</label>
+      <input id="usuario" name="identificacion" type="text" value="" class="opcional">
+
+      <label for="usuario" class="opcional">Código de Fedegolf</label>
+      <input id="usuario" name="cod_fedegolf" type="text" value="" class="opcional">
+
+      <label for="usuario" class="opcional">Index al día según Fedegolf</label>
+      <input id="usuario" name="indice_fedegolf" type="number" step='0.1' value="0.0" class="opcional">
+
+      <label for="usuario">Acpetar Términos y condiciones</label>
+
+      <input type="checkbox" name="" value=""required>
+
+      <a href="{{url_for('condiciones_uso')}}">Ver Términos y condiciones</a>
+      <br>
+      <input id="submit" name="submit" type="submit" value="Enviar">
+    </form>
+    <br>
+    <li><a href="/">Home</a></li>
+
+  </body>
+{% endblock %}

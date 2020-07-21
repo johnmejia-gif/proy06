@@ -1,0 +1,38 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+
+<h3>No inscriba más jugadores de los permitidos por el Club en cada grupo</h3>
+<p>{{session["name"]}}, aquí puede adicionar jugadores para conformar su grupo de juego (no exceder el máximo permitido por el club).</p><br>
+
+<p>Los juagdores que coloques deben estar inscritos en TEE-SHOT (¡invite a sus amigos a inscribirse!).</p>
+<p>Por favor colocar usuarios con quien desea jugar</p>
+  <br>
+
+  <form action="{{url_for('rejugrupo')}}" method="post">
+    <label for="">Campos habilitados para agendar.</label>
+    <label for="usuario">Seleccione Club.</label>
+    <select name="clu">
+      <option >{{club}}</option>
+    </select>
+    <br><br>
+    <label for="usuario">Jugador 1 :</label>
+    <label for="" class="jugador1">{{session["username"]}}</label><br>
+    <label for="usuario">Jugador 2 : </label>
+    <input class="jugadores" name="jug02" type="email" ><br>
+    <label for="usuario">Jugador 3 : </label>
+    <input class="jugadores" name="jug03" type="email" ><br>
+    <label for="usuario">Jugador 4 : </label>
+    <input class="jugadores" name="jug04" type="email" ><br>
+    <br>
+    <input id="submit" name="submit" type="submit" value="CONTINUAR">
+  </form>
+
+  <br>
+  <li class="enlace"><a href="{{url_for('iniciojugadores')}}" >Regresar</a></li>
+  <li class="enlace"><a href="{{url_for('logout')}}" >Cerrar Sesión</a></li>
+
+{% endblock %}

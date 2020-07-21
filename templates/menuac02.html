@@ -1,0 +1,88 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+<!--    <meta charset="UTF-8">
+  <title>Formularios con CSS</title>-->
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+<body>
+
+
+  <h2>Club:  {{club}}</h2>
+  <p>{{session["name"]}} por favor completar el formulario de configuración</p>
+
+    <p>Campos habilitados para su Club:</p>
+      {% for i in range(1,largo) %}
+        <p>{{campos[i]}}</p>
+      {% endfor %}
+    <br>
+    <hr>
+    <br/>
+    <p>A continuación seleccione los parámetros para crear agenda en los campos mencionados teniendo en cuenta las descripciones de cada selección que realice:</p>
+    <form action="{{url_for('clubcreaagendadia')}}" method="post">
+      <label for=''>Cantiad de de jugadores por grupo:</label>
+      <select class="" name="numjug">
+        <option>1</option>Jugador
+        <option>2</option>Jugadores
+        <option>3</option>Jugadores
+        <option selected>4</option>Jugadores
+
+      </select>
+      <p>Tiempo estipulado para una ronda de 9 hoyos en su club</p>
+      <label for="">Horas</label>
+      <select class="" name="txrh">
+        <option>0</option>horas
+        <option>1</option>horas
+        <option selected>2</option>horas
+        <option>3</option>horas
+        <option>4</option>horas
+      </select>
+      <label for="">Minutos</label>
+      <select clas="" name="txrm">
+        {% for i in range (0,14) %}
+        <option>{{i}}</option>
+        {% endfor %}
+        <option selected>15</option>
+        {% for i in range (15,60) %}
+        <option>{{i}}</option>
+        {% endfor %}
+      </select>
+      <p>Tiempo para refrigerio entre rondas de 9 hoyos</p>
+      <label for="">Minutos</label>
+      <select class="" name="desa">
+        {% for i in range (1,14) %}
+        <option>{{i}}</option>
+        {% endfor %}
+        <option selected>15</option>
+        {% for i in range (16,60) %}
+        <option>{{i}}</option>
+        {% endfor %}
+      </select>
+      <hr>
+      <label for="">Fecha (puede programar días que no se hayan programado todavía, con un máximo de 10 dias adelante)</label>
+      <input type="date" name="fechainicial" min={{fecha1}} max={{fecha2}} required/><br/>
+      <label for="">Hora de inicio: Hora del primer turno</label>
+      <input type="time" value="06:00" name="hora_apertura" />
+      <label for="">Hora de cierre del campo. Hasta cuando se permite jugar.</label>
+      <input type="time" value="18:00" name="hora_cierre" />
+      <label for="">Intervalo de los turnos expresado en minutos (La Fedegolf ha propuesto 15 minutos)</label>
+      <select name="frecuencia">
+        {% for i in range(8,14)%}
+        <option >{{i}}</option>
+        {% endfor %}
+        <option selected>15</option>
+        {% for i in range(16,20)%}
+        <option >{{i}}</option>
+        {% endfor %}
+      </select>
+      <br><br>
+      <input id="submit" name="submit" type="submit" value="Enviar">
+    </form>
+
+    <ul class="">
+      <li><a href="{{url_for('inicioadclub')}}" >Regresar</a></li>
+      <li><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+    </ul>
+     <br><br><br>
+</body>
+{% endblock %}

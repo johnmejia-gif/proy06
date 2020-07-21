@@ -1,0 +1,81 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+<!--    <meta charset="UTF-8">
+  <title>Formularios con CSS</title>-->
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+<body>
+
+  <!--<p>club=club,campo=campo,fecha=fecha,progclubcampo=progclubcampo</p>-->
+  <!-- <h2>Club: {{club}}</h2>
+  <p>fecha: {{fecha}}</p>
+
+  <p>progclubcampo: {{progclubcampo[0]}}</p> -->
+
+<!--  <div class="prueba">
+
+  {% for linea in progclubcampo%}
+      <p>T: {{linea[3]}}_ H: {{linea[2]}}_ _Cupos:{{linea[8]}}_ _J1: {{linea[4]}}_ J2: {{linea[5]}}_ J3: {{linea[6]}}_J4: {{linea[7]}}</p>
+    {% endfor %}
+  </div>-->
+
+
+
+    <form class="form05" action="{{url_for('clubcambioagendatenis')}}" method="post">
+      <h3>AGENDA DE TENIS</h3>
+      <div class="contenedor05">
+        <table class="tabla_agenda">
+            <tr class="ttabla">
+              <td>TURNO</td>
+              <td>CANCHA</td>
+              <td>TIPO</td>
+              <td>HORA</td>
+              <td>JUGADOR</td>
+              <td>PROFESOR</td>
+            </tr>
+          {% for linea in progclubcampo%}
+            {% if linea[7] != 'vacio' %}
+              <tr class="filas_nd">
+                <td class="celda_boton"><button type="submit" name="linea" value="{{linea[11]}}" onclick="">SELECCIONE</button></td>
+                <td>{{linea[1]}}</td>
+                <td>{{linea[4]}}</td>
+                <td>{{linea[5]}}</td>
+                <td>{{linea[7]}}</td>
+                <td>{{linea[8]}}</td>
+              </tr>
+            {% else %}
+              <tr class="filas_sd">
+                <td class="celda_boton"><button type="submit" name="linea" value="{{linea[11]}}" onclick="">SELECCIONE</button></td>
+                <td>{{linea[1]}}</td>
+                <td>{{linea[4]}}</td>
+                <td>{{linea[5]}}</td>
+                <td>{{linea[7]}}</td>
+                <td>{{linea[8]}}</td>
+              </tr>
+            {% endif %}
+          {%endfor%}
+        </table>
+      </div>
+
+      <input type="hidden" name="fecha" value="{{fecha}}">
+      <input type="hidden" name="campo" value="{{campo}}">
+      <!-- <h2>Para realizar cambios en la agenda seleccione en cual turno:</h2>
+      <label for="usuario">TURNO</label>
+      <select name="turno" required>
+        <option value="" ></option>
+        {% for linea in progclubcampo %}
+        <option>{{linea[3]}}</option>
+        {% endfor %}
+      </select>
+      <input id="submit" name="submit" type="submit" value="Continuar con el cambio"> -->
+
+    </form>
+
+    <ul class="">
+      <li><a href="{{url_for('inicioadclub')}}" >Regresar</a></li>
+      <li><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+    </ul>
+     <br><br><br>
+</body>
+{% endblock %}

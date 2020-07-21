@@ -1,0 +1,50 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+
+<!-- <p>{{jugadores[0]}}</p>
+<p>{{jugadores[1]}}</p>
+<p>{{jugadores[2]}}</p>
+<p>{{jugadores[3]}}</p> -->
+
+
+  <form class="" action="{{url_for('moptjug')}}" method="post">
+    <label>Seleccione el campo en el que desea jugar</label>
+    <br>
+    <input type="hidden" name="jugadores" value="{{jugadores}}">
+    <input type="hidden" name="ljugadores" value="{{ljugadores}}">
+    <input type="hidden" name="club" value="{{club}}">
+    <select class="" name="campo">
+      {%for i in range(1,lcampos)%}
+      <option >{{campos[i]}}</option>
+      {% endfor%}
+    </select>
+    <br>
+    <br>
+
+    <label for="">Seleccione la fecha en la que desea agendar</label>
+    <br>
+    <input type="date" name="fecha_deseada" min={{fecha1}} max={{fecha2}} required/><br/>
+
+    <input type="submit" name="enviar" value="CONTINUAR">
+  </form>
+  <br>
+
+
+<!--  <form class="" action="{{url_for('inicioagendajugador')}}" method="post">
+    <input type="submit" name="logout" value="VOLVER">
+  </form>
+  <form class="" action="{{url_for('logout')}}" method="post">
+    <input type="submit" name="logout" value="TERMINAR_SESIÓN">
+  </form>-->
+
+  <br>
+
+  <li class="enlace"><a href="{{url_for('inicioagendajugador')}}">Volver</a></li>
+  <li class="enlace"><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+<!--    <meta charset="UTF-8">
+  <title>Formularios con CSS</title>-->
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+<body>
+ <p>{{linea}}</p>
+ <p>turno: {{turno}}</p>
+ <p>cancha: {{cancha}}</p>
+ <p>filaagenda= {{filaagenda}}</p>
+ <p>{{profesdispo}}</p>
+ <p>{{profesdispo[0]}}</p>
+
+  <h3>Realice los cambios necesarios según las indicaciones:</h3>
+  <form class="" action="{{url_for('clubrealizacambioagendatenis')}}" method="post">
+
+    <p>1. Para liberar el turno, escriba la palabra: vacio</p>
+    <p>2. Si va a cambiar el jugador ó registrar alguno, escriba el nuevo usuario</p>
+    <input type="hidden" name="fecha" value="{{fecha}}">
+    <input type="hidden" name="cancha" value="{{cancha}}">
+    <input type="hidden" name="turno" value="{{turno}}">
+    <br>
+    <label for="">Jugador: {{filaagenda[7]}}</label><input type="text" name="jugador" value=""placeholder="{{filaagenda[7]}}">
+    <hr><hr>
+    <p>3. Si va a cambiar el profesor ó registrar alguno, seleccione de los profesores disponibles</p>
+    <br>
+    <label for="">profesor: {{filaagenda[8]}}</label>
+    <select class="" name="profesor">
+      <option select>{{filaagenda[8]}}</option>
+      {% if filaagenda[8] !='vacio' %}
+      <option >vacio</option>
+      {% endif %}
+      {% for i in range(tprof) %}
+        <option >{{profesdispo[i]}}</option>
+      {% endfor %}
+
+    </select>
+
+    <input type="submit" name="" value="Realizar el cambio">
+  </form>
+
+
+
+
+
+    <ul class="">
+      <li><a href="{{url_for('vaparameters')}}" >Regresar</a></li>
+      <li><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+
+    </ul>
+     <br><br><br>
+</body>
+{% endblock %}

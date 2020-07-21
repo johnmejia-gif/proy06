@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>TEE-SHOT</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/fuentes.css')}}">
+  </head>
+  <body>
+
+<!--        <div class=" ">
+          <img src="{{url_for('static',filename='IMAGENES/logo_ts.ico')}}" width="70" alt="Logotipo">
+        </div>-->
+        <nav class="menu">
+          <ul >
+            <li>  <img src="{{url_for('static',filename='IMAGENES/logo_ts.ico')}}" width="70" alt="Logotipo"></li>
+            <li><a href="/">Home</a></li>
+<!--            <li><a href="{{url_for('home')}}">Inicio</a></li>-->
+            <li><a href="{{url_for('registro')}}">Registrarse</a></li>
+          </ul>
+        </nav>
+
+      {% block content %}
+      {% endblock %}
+
+
+  </body>
+</html>

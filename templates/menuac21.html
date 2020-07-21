@@ -1,0 +1,46 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+<!--    <meta charset="UTF-8">
+  <title>Formularios con CSS</title>-->
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+<body>
+    <form class="form05" action="{{url_for('clubcambioagendaesqui')}}" method="post">
+      <h3>AGENDA DE ESQUI</h3>
+      <div class="contenedor05">
+        <table class="tabla_agenda">
+            <tr class="ttabla">
+              <td>TURNO</td>
+              <td>HORA</td>
+              <td>JUGADOR</td>
+            </tr>
+          {% for linea in progclubcampo%}
+            {% if linea[5] != 'vacio' %}
+              <tr class="filas_nd">
+                <td class="celda_boton"><button type="submit" name="turno" value="{{linea[4]}}" onclick="">SELECCIONE</button></td>
+                <td>{{linea[3]}}</td>
+                <td>{{linea[5]}}</td>
+              </tr>
+            {% else %}
+              <tr class="filas_sd">
+                <td class="celda_boton"><button type="submit" name="turno" value="{{linea[4]}}" onclick="">SELECCIONE</button></td>
+                <td>{{linea[3]}}</td>
+                <td>{{linea[5]}}</td>
+              </tr>
+            {% endif %}
+          {%endfor%}
+        </table>
+      </div>
+
+      <input type="hidden" name="fecha" value="{{fecha}}">
+      <input type="hidden" name="campo" value="{{campo}}">
+    </form>
+
+    <ul class="">
+      <li><a href="{{url_for('inicioadclub')}}" >Regresar</a></li>
+      <li><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+    </ul>
+     <br><br><br>
+</body>
+{% endblock %}

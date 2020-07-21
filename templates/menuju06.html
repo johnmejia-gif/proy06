@@ -1,0 +1,73 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+
+  <body>
+    <h2>Tarjeta de Juego</h2>
+    <div class="contarjeta">
+    <form class="tarjeta" action="{{url_for('rectarjetajugador')}}" method="post">
+      <input type="hidden" name="club" value="{{club}}">
+      <input type="hidden" name="marcador" value="{{marcador}}">
+      <input type="hidden" name="hora" value="{{hora}}">
+
+      <p>{{club}}</p>
+      <p>Fecha: {{hoy}}. Hora de juego: {{hora}}</p>
+      <p>Jugador: {{session["name"]}} {{session["surname"]}}</p>
+      <br>
+
+        <table>
+          <tr>
+            <td>Hoyo:</td>
+            {% for i in range (1,10) %}
+            <td>{{i}}</td>
+            {% endfor %}
+          </tr>
+          <tr class="fila_score">
+            <td>Score</td>
+            {% for i in range (1,10) %}
+            <td><input type="number" min="1" max="15"  name="hoyo{{i}}" value="" required class="score"></td>
+            {% endfor %}
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td>Hoyo:</td>
+            {% for i in range (10,19) %}
+            <td>{{i}}</td>
+            {% endfor %}
+          </tr>
+          <tr class="fila_score">
+            <td>Score</td>
+            {% for i in range (10,19) %}
+            <td><input type="number" min="1" max="15"  name="hoyo{{i}}" value="" required class="score"></td>
+            {% endfor %}
+          </tr>
+        </table>
+
+
+      <br><br>
+      <label for="">Al firmar está aceptando y enviando para revisión del marcador: </label>
+      <input type="submit" name="" value="Firmar Tarjeta">
+      <hr>
+      <p>Recuerde que su marcador es {{marcador}}</p>
+
+    </form>
+    </div>
+
+
+
+
+
+    <br>
+    <li class="enlace"><a href="{{url_for('tarjetasjugador')}}">Volver</a></li>
+    <li class="enlace"><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+
+  </body>
+
+
+
+
+{% endblock %}

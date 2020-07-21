@@ -1,0 +1,46 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+<!--    <meta charset="UTF-8">
+  <title>Formularios con CSS</title>-->
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+<body>
+
+  <h2>TARJETAS DE JUEGO</h2>
+  <h3>{{session["course"]}}</h3>
+  <h3>Fecha: {{fecha}}</h3>
+  <br>
+  <!--<p>{{tarjetas}}</p>-->
+
+  <table>
+    <tr class="ttabla">
+      <td>NOMBRE</td>
+      <td>APELLIDO</td>
+      <td>Código FEDEGOLF</td>
+      {% for i in range (1,19)%}
+      <td>H{{i}}</td>
+      {% endfor %}
+      <td>JUGADOR</td>
+      <td>MARCADOR</td>
+    </tr>
+    {% for tarjeta in tarjetas %}
+    <tr>
+      {%for j in range(0,23)%}
+      <td>{{tarjeta[j]}}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+  <br><br>
+
+
+
+    <ul class="">
+      <li><a href="{{url_for('inicioadclub')}}">Volver</a></li>
+      <li><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+
+    </ul>
+     <br><br><br>
+</body>
+{% endblock %}

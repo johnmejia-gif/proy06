@@ -1,0 +1,41 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+<!--    <meta charset="UTF-8">
+  <title>Formularios con CSS</title>-->
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+<body>
+  <h2>JUGADORES QUE REQUIEREN AVAL DEL CLUB {{session["course"]}} PARA SOLICITAR TURNOS:</h2>
+  <br>
+
+
+<form class="form05" action="{{url_for('daravalxclub')}}" method="post">
+  <h3>Seleccione jugador que desea avalar:</h3>
+  <div class="contenedor05">
+    <table class="tabla_agenda">
+      <tr class="ttabla">
+        <td>AUTORIZAR</td>
+        <td>NOMBRE</td>
+        <td>APELLIDO</td>
+      </tr>
+      {% for jugador in sinaval %}
+      <tr class='contabla'>
+        <td class='celda_boton'><button type="submit" name="co" value="{{jugador[0]}}" onclick="">{{jugador[0]}}</button></td>
+        <td>{{jugador[1]}}</td>
+        <td>{{jugador[2]}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</form>
+
+
+    <ul class="">
+      <li><a href="{{url_for('inicioadclub')}}">Volver</a></li>
+      <li><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+
+    </ul>
+     <br><br><br>
+</body>
+{% endblock %}

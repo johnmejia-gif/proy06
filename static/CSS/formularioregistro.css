@@ -1,0 +1,125 @@
+*{
+  margin: 0;padding: 0;
+  font-family: Roboto-Light;
+
+}
+body{
+  text-align: justify;
+}
+h2{
+  padding: 20px;
+  font-size: 35px;
+  color:#065F73;
+}
+h3{
+  padding: 20px;
+  font-size: 27px;
+  color:#065F73;
+}
+h4{
+  padding: 20px;
+  font-size: 20px;
+  color:#065F73;
+}
+
+P{
+  font-size: 20px;
+  padding-left: 15px;
+}
+.menu {
+  width: 100%;
+  background: #1F8DA6;
+  list-style: none;
+}
+.menu li{
+  display: inline-block;
+
+}
+.menu li a{
+  padding:10px 20px;
+  display: inline-block;
+  color:#fff;
+  list-style: none;
+}
+.menu li a:hover{
+  background: #fb8c00;
+  color:#000;
+
+}
+
+form{
+  background: #1F8DA6;
+  color: #ffff;
+  width: 50%;
+  border:0px solid #ccc;
+  margin: 20px;
+  padding: 20px;
+  list-style: none;
+}
+
+label{
+  display:block;
+  width: 100%;
+}
+
+textarea{
+  resize: vertical;
+  max-height: 300px;
+  min-height: 100px;
+}
+input, textarea{
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border:1px solid #ccc;
+}
+input[type=date], input[type=time] {
+  margin-bottom: 20px;
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+select, option {
+  margin-bottom: 20px;
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  border:1px solid #ccc;
+  font-size: 15px;
+}
+
+input:focus, textarea:focus {
+  border:2px solid #1668C4;
+}
+.cruces{
+  color:red;
+}
+
+input[type="submit"] {
+  margin-bottom: 20px;
+  background: #fb8c00;
+  color:#fff;
+  border:none;
+  font-size: 15px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: auto;
+}
+
+input[type="submit"]:hover{
+  background: #f2ac57;
+  cursor: pointer;
+}
+
+input[type="submit"]:active{
+  background: #f24c27;
+}
+
+.opcional{
+  color: #ccc;
+  font-size: 15px;
+  width: 50%;
+}

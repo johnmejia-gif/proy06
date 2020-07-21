@@ -1,0 +1,28 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/menu_seleccion.css')}}"/>
+</head>
+
+<p>Bueno {{session["name"]}} por favor escoge una opción</p>
+  <br><br><br>
+  <h2> Opciones para administración de Juegos en el Club {{club}} </h2>
+  <br><br><br><br>
+  <form class="" action="{{url_for('AbrirAgenda')}}" method="post">
+    <input type="submit" name="abrir_agenda" value="CREAR Agenda">
+  <br><br><br>
+  </form>
+
+  <form class="" action="{{url_for('AbrirAgenda')}}" method="post">
+    <input type="submit" name="ver_agenda" value="REVISAR Agenda">
+    <br><br><br>
+  </form>
+
+  <form class="" action="{{url_for('AbrirAgenda')}}" method="post">
+    <input type="submit" name="autorizar_jugador" value="AUTORIZAR Jugador">
+
+  </form>
+
+<br><br><br><br><br>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>TEE-SHOT</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/fuentes.css')}}">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initaial-scale=1.0, minimum-scale=1.0">
+  </head>
+  <body>
+      <header>
+
+        <nav class="navegacion">
+          <ul class="menu">
+            <li>  <img src="{{url_for('static',filename='IMAGENES/logo_ts.ico')}}" width="70" alt="Logotipo"></li>
+            {% if session['name'] == ''%}
+            <li><a href="/">Home</a></li>
+            {% endif %}
+            {% if session["name"] != ''%}
+              {% if session["tusu"] == 1 %}
+            <li><a href="{{url_for('iniciojugadores')}}">Inicio</a></li>
+              {% else %}
+                {% if session["tusu"] == 2 %}
+            <li><a href="{{url_for('inicioadclub')}}">Inicio</a></li>
+                {% endif %}
+              {% endif %}
+            <li><a href="#">{{session["name"]}}</a>
+              <ul class="submenu">
+                <li><a href="{{url_for('perfilusuario')}}">Perfil</a></li>
+                <li><a href="{{url_for('cambiocontrasegna')}}">Cambiar Contraseña</a></li>
+                <li><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+              </ul>
+            </li>
+            {% else %}
+            <li><a href="{{url_for('registro')}}">Registrarse</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </header>
+      {% block content %}
+      {% endblock %}
+
+
+
+
+
+
+
+
+  </body>
+</html>

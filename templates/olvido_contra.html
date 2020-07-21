@@ -1,0 +1,32 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+      <div class="alerta">
+        <h2>{{message}}</h2>
+      </div>
+
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <br>
+
+  <form action="{{url_for('procolvidocontrasegna')}}" method="post">
+    <label for="">Para reestablecer contraseña, debe colocar su usuario(e-mail registrado en TEE-SHOT) y al correo electrónico le enviaremos una contraseña provisional para que pueda ingresar.</label>
+    <input type="email" name="usuario" value="" required>
+    <input id="submit" name="submit" type="submit" value="Enviar">
+
+    <br>
+    <li class="enlace"><a href="{{url_for('home')}}" >Regresar</a></li>
+  </form>
+
+
+
+{% endblock %}

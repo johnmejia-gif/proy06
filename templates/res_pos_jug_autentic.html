@@ -1,0 +1,51 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/menu_seleccion.css')}}"/>
+
+</head>
+
+  <h2> Bienvenida especial para {{session["name"]}} a su sesion en TEE-SHOT como jugador.</h2>
+  <br>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+      <div class="alerta">
+        <h2>{{message}}</h2>
+      </div>
+
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <br>
+  <br>
+  <br>
+
+{% if session["course"]=='Serrezuela'%}
+<div class="botones">
+  <li><a href="{{url_for('inicioagendajugador')}}">PEDIR TURNO GOLF</a></li>
+  <li><a href="{{url_for('tarjetasjugador')}}">PASAR TARJETA GOLF</a></li>
+  <li><a href="{{url_for('tarjetascolega')}}">FIRMAR COMO MARCADOR GOLF</a></li>
+  <hr><hr>
+  <li><a href="{{url_for('inicioagendajugador_tenis')}}">PEDIR TURNO TENIS</a></li>
+  <hr><hr>
+  <li><a href="{{url_for('inicioagendajugador_esqui')}}">PEDIR TURNO SQUI</a></li>
+</div>
+
+
+{% else %}
+<div class="botones">
+  <li><a href="{{url_for('inicioagendajugador')}}">PEDIR TURNO</a></li>
+  <li><a href="{{url_for('tarjetasjugador')}}">PASAR TARJETA</a></li>
+  <li><a href="{{url_for('tarjetascolega')}}">FIRMAR COMO MARCADOR</a></li>
+</div>
+{% endif %}
+
+
+<br><br>
+<li class="enlace"><a href="{{url_for('logout')}}" >Cerrar Sesión</a></li>
+
+
+{% endblock %}

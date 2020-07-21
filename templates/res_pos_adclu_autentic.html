@@ -1,0 +1,53 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+  <head>
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/menu_seleccion.css')}}"/>
+
+  </head>
+
+  <h3> Bienvenida especial para {{session["name"]}} a su sesion en TEE-SHOT como Administrador del Club.</h3>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+      <div class="alerta">
+        <h2>{{message}}</h2>
+      </div>
+
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+
+  {% if session["course"]=='Serrezuela'%}
+  <div class="botones">
+    <li><a href="{{url_for('formturnos')}}">CREAR Agenda de GOLF</a></li>
+    <li><a href="{{url_for('vaparameters')}}">VER y/o MODIFICAR Agenda de GOLF</a></li>
+    <li><a href="{{url_for('selclubtarjetas')}}">TARJETAS DE JUEGO de GOLF</a></li>
+    <hr>
+    <hr>
+    <li><a href="{{url_for('formturnostenis')}}">CREAR Agenda de TENIS</a></li>
+    <li><a href="{{url_for('vaparameterstenis')}}">VER y/o MODIFICAR Agenda de TENIS</a></li>
+    <hr>
+    <hr>
+    <li><a href="{{url_for('formturnosesqui')}}">CREAR Agenda de SQUI</a></li>
+    <li><a href="{{url_for('vaparametersesqui')}}">VER y/o MODIFICAR Agenda de SQUI</a></li>
+    <hr>
+    <hr>
+    <li><a href="{{url_for('avalarjugadoresclub')}}">GESTIONAR Jugadores</a></li>
+  </div>
+  {% else %}
+  <div class="botones">
+    <li><a href="{{url_for('formturnos')}}">CREAR Agenda</a></li>
+    <li><a href="{{url_for('vaparameters')}}">VER y/o MODIFICAR Agenda</a></li>
+    <li><a href="{{url_for('selclubtarjetas')}}">TARJETAS DE JUEGO</a></li>
+    <li><a href="{{url_for('avalarjugadoresclub')}}">GESTIONAR Jugadores</a></li>
+  </div>
+  {% endif %}
+
+
+  <br><br>
+  <li class="enlace"><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+  <br>
+
+{% endblock %}

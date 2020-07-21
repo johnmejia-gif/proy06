@@ -1,0 +1,36 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+<head>
+<!--    <meta charset="UTF-8">
+  <title>Formularios con CSS</title>-->
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+
+<h2>CONFIRMACION DE TURNO</h2>
+<p>El día {{fecha}}</p>
+<p>En {{campo}}</p>
+<p>Hora: {{filaagenda[6]}}</p>
+<p>Igualmente hemos enviado un correo de confirmación a su grupo de juego</p>
+
+<!--<p>fecha=fecha,campo=campo,jugadores=jugadores,ljugadores=ljugadores)</p>
+<p>{{fecha}}, {{campo}}, {{jugadores}} {{ljugadores}} {{consulta1}}</p>
+  <p> {{turno_sel}}</p>
+  <p>{{filaagenda}}</p>-->
+
+<form class="" action="{{url_for('brabagenjugador')}}" method="post">
+  <input type="hidden" name="jugadores" value="{{jugadores}}">
+  <input type="hidden" name="ljugadores" value="{{ljugadores}}">
+  <input type="hidden" name="club" value="{{club}}">
+  <input type="hidden" name="fecha" value="{{fecha}}">
+
+</form>
+
+  <form class="" action="{{url_for('inicioagendajugador')}}" method="post">
+    <input type="submit" name="logout" value="VOLVER">
+  </form>
+  <br>
+
+<li class="enlace"><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+
+
+{% endblock %}

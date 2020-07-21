@@ -1,0 +1,56 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/ppal.css')}}"/>
+</head>
+
+
+<!--<p>{{jugadores[0]}}</p>-->
+
+<!--<p>fecha=fecha,campo=campo,jugadores=jugadores,ljugadores=ljugadores)</p>-->
+
+<p>Pra el día: {{fecha}}, en el club:{{club}}, en: {{campo}}, para los usuarios: {{jugadores}} </p>
+<br>
+<p>Por favor seleccione el turno deseado:</p>
+<!--<p>{{progclubcampo}}</p>-->
+<form id="formulario01" class="" action="{{url_for('brabagenjugador')}}" method="post">
+
+  <input type="hidden" name="jugadores" value="{{jugadores}}">
+  <input type="hidden" name="ljugadores" value="{{ljugadores}}">
+  <input type="hidden" name="club" value="{{club}}">
+  <input type="hidden" name="fecha" value="{{fecha}}">
+  <input type="hidden" name="campo" value="{{campo}}">
+<div class="contenedor05">
+  <table class="tabla_agenda">
+    <tr class="ttabla">
+      <td>TURNO</td>
+      <td>HORA</td>
+      <td>CUPOS DISPONIBLES</td>
+    </tr>
+    {% for linea in progclubcampo %}
+    {% if linea[12] < ljugadores %}
+    <tr class="filas_nd">
+      <td>{{linea[7]}}</td>
+      <td>{{linea[6]}}</td>
+      <td>{{linea[12]}}</td>
+    </tr>
+    {% else %}
+    <tr class="filas_sd">
+      <td class="celda_boton"><button type="submit" name="tur" value="{{linea[7]}}" onclick="">{{linea[7]}}</button></td>
+      <td>{{linea[6]}}</td>
+      <td>{{linea[12]}}</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+</div>
+
+</form>
+
+
+  <br>
+  <li class="enlace"><a href="{{url_for('inicioagendajugador')}}">Volver</a></li>
+  <li class="enlace"><a href="{{url_for('logout')}}">Cerrar Sesión</a></li>
+
+{% endblock %}

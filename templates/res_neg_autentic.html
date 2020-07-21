@@ -1,0 +1,12 @@
+{% extends "layout_autenticado.html" %}
+{% block content%}
+
+
+    <p> Error de autenticación: {{dato}}</p>
+    <form class="" action="{{url_for('home')}}" method="post">
+      <input type="submit" name="ini" value="Inicio">
+    <br><br><br>
+    </form>
+
+
+{% endblock %}

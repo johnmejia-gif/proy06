@@ -1,0 +1,66 @@
+{% extends "layout_autenticado.html" %}
+
+{% block content%}
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='CSS/autenticacion.css')}}"/>
+</head>
+<body>
+
+
+  <div class="contenedor">
+    <div class="login">
+      <article class="fondo">
+      <form action="{{url_for('autenticar')}}" method="POST">
+        <h2>Inicio de Sesión</h2>
+        <label for="usuario">Correo electónico</label>
+        <input id="usuario" name="usuario" required type="email" value="">
+
+        <label for="contrasena">Contraseña</label>
+        <input id="contrasena" name="contrasena" required type="password" value="">
+        <input id="submit" name="submit" type="submit" value="Enviar">
+        <br>
+        <li><a href="{{url_for('olvidocontrasegna')}}">Olvidó su contraseña</a></li>
+      </form>
+    </article>
+    </div>
+  </div>
+  <section class="wrapper">
+      <section class="manin">
+        <article>
+          <h3>¿Qué es TEE-SHOT?</h3>
+          <p>TEE-SHOT es el sitio donde los juadores y amantes del GOLF podrán encontrar todas las soluciones
+            a sus necesidades, de tal manera que en un solo sitio, todas sus expectativas se puedan resolver en entorno
+            mediante la web en un solo sitio.
+          </p>
+        </article>
+        <br>
+
+        <article>
+          <h3>¿Qué puedo hacer en TEE-SHOT?</h3>
+          <p>Quieres jugar Golf pero no sabes cómo empezar, dónde tomar clases?...</p>
+          <p>Quieres jugar Golf pero no sabes en cual club ó o campo hay disponiblidad...</p>
+          <p>Será que puedo llevar mi score y el de mis amigos en un solo sitio que me calcule los resultados de cada juego de manera personalizada?</p>
+          <p>Será que alguien tiene algún equipo que quiera vender?</p>
+          <p>Pero si yo traigo elementos de golf para vender, será que encuentro un sitio webe donde estén todos los jugadores para ofrecer mis pordutos?</p>
+          <p>Será que a algún jugador le interesa un Driver que quiero vender?</p>
+          <p>Será que hay una solución a mis necesidades de Golf en un solo sitio web?</p>
+
+        </article>
+        <br>
+      </section>
+      <aside>
+        <h3>ENTONCES PARA QUÉ PUEDO USAR TEE-SHOT?</h3>
+        <p>
+          Las anteriores opciones son algunas de las soluciones que puedes encontrar en TEE-SHOT.
+        </p>
+        <p>
+          Pero habrá más...
+        </p>
+        <p>
+          TEE-SHOT llega para colmar todas tus expectativas así que no hay límite...
+        </p>
+      </aside>
+    </section>
+
+  </body>
+{% endblock %}
